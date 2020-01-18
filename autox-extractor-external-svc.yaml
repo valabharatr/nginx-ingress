@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: autox-extractor-svc
+  name: autox-extractor-svc
+  namespace: ingress-nginx
+spec:
+  externalName: autox-extractor.autox-crawlers.svc.cluster.local
+  selector:
+    app: autox-extractor
+    env: production
+    project: autox
+    role: extractor
+  type: ExternalName
